@@ -23,12 +23,12 @@ CDialogInfo::CDialogInfo()
     QString sTypeAnalyseur;
 #ifdef SONDE
     sTypeAnalyseur = "SONDE";
+#elif defined(SILICE)    
+    sTypeAnalyseur = "SILICE";
 #elif defined(KMNO4)    
     sTypeAnalyseur = "KMNO4";
 #elif defined(TITRI)    
     sTypeAnalyseur = "TITRI";
-#elif defined(SILICE)    
-    sTypeAnalyseur = "SILICE";
 #elif defined(COULEUR)    
     sTypeAnalyseur = "COULEUR";
 #elif defined(COLO)
