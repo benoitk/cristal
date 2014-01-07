@@ -1,0 +1,652 @@
+/* Commun */
+QDialog#dialogModal{
+	border-radius: 7px;
+	border-width: 1px;
+	border-color: black;
+	border-style: solid;
+}
+QPushButton:pressed { 
+	color: white;
+	background-color: white;
+	border-width: 1px;
+	border-color: black;
+	border-style: solid;
+	
+	padding: 1px;
+	font-size: 14px;
+	}
+QPushButton { 
+	color: black;
+	background-color: white;
+	border-width: 1px;
+	border-color: black;
+	border-style: solid;
+	padding: 1px;
+	font-size: 14px;
+
+	}
+QRadioButton#btRadio {
+	color: black;
+	background: gray;
+	border-width: 0px;
+	icon-size: 20px;
+	border-radius: 7px;
+	font-size: 16px;
+	height: 35px;
+}
+
+ QWidget{
+	background-color: white;
+	margin: 0px;
+	padding:0px;
+ }
+ 
+ QTabWidget{
+	background-color: #dcdcdc;
+	font-size: 20px; /*Pour forcer les tabbar à prendre la bonne dimention fontsize de QTabBar::tab + 2*/
+
+ }
+ QTabWidget::tab-bar {
+     left: 5px; /* move to the right by 5px */
+ }
+
+ QTabWidget::pane { /* The tab widget frame */
+     border-top: 1px solid black;
+ }
+
+ /* Style the tab using the tab sub-control. Note that
+     it reads QTabBar _not_ QTabWidget */
+ QTabBar::tab {
+     background: #dcdcdc;
+     border: 0px solid black;
+     border-bottom-color: black; /* same as the pane color */
+     border-top-left-radius: 7px;
+     border-top-right-radius: 7px;
+	 padding-left: 0px;
+	 padding-right: 0px;
+	 padding-top:0px;
+	 padding-bottom:0px;
+	 margin-top:2px;
+	 margin-right: 4px;
+	 margin-left: 4px;
+	 font-size: 15px; /*ne pas oublier le fontsize de QTabWidget en cas de modif */
+
+
+	
+ }
+QGraphicsView{
+	border: 0px solid black;
+}
+ QTabBar::tab:selected {
+		background: white;
+     border-color: black;
+     border-bottom-color: white; /* same as pane color */
+	 border: 1px solid black;
+	 border-bottom: 1px;
+	 margin-right: 0px;
+	 margin-left: 0px;
+	 padding-left: 0px;
+	 padding-right: 0px;
+	 font-weight: bold;
+
+ }
+
+ QTabBar::tab:!selected {
+	 
+ }
+ QLabel#lblGraphUnit{
+	font-size: 15px;
+ }
+ QLabel#lblGraphInfo{
+	font-size: 15px;
+	background: white;
+	color: black;
+	padding: 2px;
+	margin: 2px;
+	border-width: 1px;
+    border-style: solid;
+    border-radius: 7px;
+	background-clip: padding;
+ }
+ QLabel#lblOutils{
+ margin-top: -3px;
+	font-size: 15px;
+ }
+ QLabel#lblMeasure{
+	max-width: 300px;
+ }
+ QLabel#lblError{
+	color: white;
+	font-size: 20px;
+	background-color: red;
+	border-width: 0px;
+	border-radius: 7px;
+	margin-top: 0px;
+	padding-left: 10px;
+ }
+ QLabel{
+	font-size: 25px;
+ }
+ QPushButton#btEntree { 
+	image: url(":/pictohd/30x30 Ana-tor active.png"); 
+	border-width: 0px;
+	height: 50px;
+	width: 50px;
+	}
+QPushButton#btEntree:disabled  { 
+	image: url(":/pictohd/30x30 Ana-tor inactive.png"); 
+	border-width: 0px;
+	height: 50px;
+	width: 50px;
+	}
+  QPushButton#btOn { 
+	image: url(":/pictohd/30x30 on.png"); 
+	border-width: 0px;
+	height: 50px;
+	width: 50px;
+	}
+QPushButton#btOn:disabled  { 
+	image: url(":/pictohd/30x30 on active.png"); 
+	border-width: 0px;
+	height: 50px;
+	width: 50px;
+	}
+
+ QPushButton#btOff { 
+	image: url(":/pictohd/30x30 off.png"); 
+	border-width: 0px;
+	height: 50px;
+	width: 50px;
+	}
+ QPushButton#btOff:disabled { 
+	image: url(":/pictohd/30x30 off active.png"); 
+	border-width: 0px;
+	height: 50px;
+	width: 50px;
+	}
+ QPushButton#btNextPage { 
+	image: url(":/picto/25x25flechebas.png"); 
+	border-width: 0px;
+	height: 30px;
+	width: 30px;
+	}
+ QPushButton#btPreviousPage { 
+	image: url(":/picto/25x25flechehaut.png"); 
+	border-width: 0px;
+	height: 30px;
+	width: 30px;
+	}
+QPushButton#btNextPage:disabled { 
+	image: url(":/picto/25x25flechebasgrisee.png"); 
+	border-width: 0px;
+	height: 30px;
+	width: 30px;
+	}
+ QPushButton#btPreviousPage:disabled { 
+	image: url(":/picto/25x25flechehautgrisee.png"); 
+	border-width: 0px;
+	height: 30px;
+	width: 30px;
+	}
+ QPushButton#btLineEdit { 
+	color: white;
+	font-size: 15px;
+	background-color: gray;
+	border-width: 0px;
+	height: 30px;
+	width: 120;
+	border-radius: 7px;
+	}
+	
+QPushButton#btPlusDateTime {image: url(":/picto/30x30 Plus.png"); border-width: 0px; height: 30px; width: 30px;}
+QPushButton#btPlusDateTime:pressed {image: url(":/picto/30x30 Plus active.png"); border-width: 0px; height: 30px; width: 30px; }
+QPushButton#btMoinsDateTime {image: url(":/picto/30x30 moins.png"); border-width: 0px; height: 30px; width: 30px;}
+QPushButton#btMoinsDateTime:pressed {image: url(":/picto/30x30 moins active.png"); border-width: 0px; height: 30px; width: 30px; }
+
+QLabel#lblValeur{
+	color: white;
+	font-size: 20px;
+	background-color: gray;
+	border-width: 0px;
+	border-radius: 7px;
+	margin-top: 0px;
+	padding-left: 10px;
+ }
+ 
+ QLineEdit#lineEditPwd {
+	lineedit-password-character: 9679;
+	font-size: 15px;
+ }
+ QLineEdit {
+	font-size: 20px;
+	color: gray;
+	width: 150px;
+	border-width: 0px;
+	border-color: red;
+	border-style: solid;
+	margin: 0px;
+	padding: 0px;
+ }
+/* FIN commun */
+ 
+ 
+ /*Menu de gauche toute fenêtre */
+  QPushButton#btBack { 
+	image: url(":/pictohd/50x50 fleche gauche.png"); 
+	border-width: 0px;
+	height: 75px;
+	width: 75px;
+	}
+  QPushButton#btBack:disabled { 
+	image: url(":/pictohd/50x50 fleche gauche grisee.png"); 
+	border-width: 0px;
+	height: 75px;
+	width: 75px;
+	}
+  QPushButton#btNextBig { 
+	image: url(":/pictohd/75x75 fleche bas.png"); 
+	border-width: 0px;
+	height: 75px;
+	width: 75px;
+	}
+  QPushButton#btNextBig:disabled { 
+	image: url(":/pictohd/75x75 fleche bas grisee.png"); 
+	border-width: 0px;
+	height: 75px;
+	width: 75px;
+	}
+  QPushButton#btNextBig:pressed { 
+	image: url(":/pictohd/75x75 fleche bas active.png"); 
+	border-width: 0px;
+	height: 75px;
+	width: 75px;
+	}
+  QPushButton#btPrevBig { 
+	image: url(":/pictohd/75x75 fleche haut.png"); 
+	border-width: 0px;
+	height: 75px;
+	width: 75px;
+	}
+  QPushButton#btPrevBig:disabled { 
+	image: url(":/pictohd/75x75 fleche haut grisee.png"); 
+	border-width: 0px;
+	height: 75px;
+	width: 75px;
+	}
+  QPushButton#btNextBig:pressed { 
+	image: url(":/pictohd/75x75 fleche haut active.png"); 
+	border-width: 0px;
+	height: 75px;
+	width: 75px;
+	}
+	QPushButton#btStopEndCycle { 
+	image: url(":/pictohd/50x50 arret fin cycle.png"); 
+	border-width: 0px;
+	height: 75px;
+	width: 75px;
+	margin-bottom: 10px;
+	}
+  QPushButton#btCancel { 
+	image: url(":/pictohd/50x50 annule.png"); 
+	border-width: 0px;
+	height: 75px;
+	width: 75px;
+	}
+	QPushButton#btExit { 
+	image: url(":/pictohd/50x50 off active.png"); 
+	border-width: 0px;
+	height: 75px;
+	width: 75px;
+	}
+ QPushButton#btApply { 
+	image: url(":/pictohd/40x40 appliquer.png"); 
+	border-width: 0px;
+	height: 75px;
+	width: 75px;
+	}
+ QPushButton#btApply:pressed{ 
+	image: url(":/pictohd/40x40 appliquer active.png"); 
+	border-width: 0px;
+	height: 75px;
+	width: 75px;
+	}
+QPushButton#btApply:disabled{ 
+	image: url(":/pictohd/40x40 appliquer grisee.png"); 
+	border-width: 0px;
+	height: 75px;
+	width: 75px;
+	}
+
+QPushButton#btAlarm { 
+	image: url(":/pictohd/40x40 alarme mesure.png"); 
+	border-width: 0px;
+	height: 75px;
+	width: 75px;
+	margin-bottom: 10px;
+	}
+QPushButton#btAlarm:checked{ 
+	image: url(":/pictohd/40x40 alarme mesure gif.png"); 
+	border-width: 0px;
+	height: 75px;
+	width: 75px;
+	margin-bottom: 10px;
+	}
+QPushButton#btAlarm:pressed{ 
+	image: url(":/pictohd/40x40 alarme mesure active.png"); 
+	border-width: 0px;
+	height: 75px;
+	width: 75px;
+	margin-bottom: 10px;
+	}
+QPushButton#btPlayPause { 
+	image: url(":/pictohd/40x40playmesure.png"); 
+	border-width: 0px;
+	height: 75px;
+	width: 75px;
+	margin-bottom: 10px;
+	}
+QPushButton#btPlayPause:pressed { 
+	image: url(":/pictohd/40x40playmesureactive.png"); 
+	border-width: 0px;
+	height: 75px;
+	width: 75px;
+	margin-bottom: 10px;
+	}
+QPushButton#btStop { 
+	image: url(":/pictohd/40x40 stop mesure.png"); 
+	border-width: 0px;
+	height: 75px;
+	width: 75px;
+	margin-bottom: 10px;
+	}
+QPushButton#btStop:pressed { 
+	image: url(":/pictohd/40x40 stop mesure active.png"); 
+	border-width: 0px;
+	height: 75px;
+	width: 75px;
+	margin-bottom: 10px;
+	}
+QPushButton#btNext { 
+	image: url(":/pictohd/40x40 next mesure.png"); 
+	border-width: 0px;
+	height: 75px;
+	width: 75px;
+	margin-bottom: 10px;
+	}
+QPushButton#btNext:pressed  { 
+	image: url(":/pictohd/40x40 next mesure active.png"); 
+	border-width: 0px;
+	height: 75px;
+	width: 75px;
+	margin-bottom: 10px;
+	}
+/* FIN menu gauche
+/* Fenêtre Principale*/
+
+	/*onglet outils*/
+QPushButton#btSequenceur { 
+	background-image: url(":/pictohd/50x50 menu sequenceur.png"); 
+	border-width: 0px;
+	height: 75px;
+	width: 75px;
+	}
+QPushButton#btSequenceur:pressed  { 
+	background-image: url(":/pictohd/50x50 menu sequenceur active.png"); 
+	border-width: 0px;
+	height: 75px;
+	width: 75px;
+	}
+QPushButton#btMaintenance { 
+	image: url(":/pictohd/50x50 menu maintenance.png"); 
+	border-width: 0px;
+	height: 75px;
+	width: 75px;
+	}
+QPushButton#btMaintenance:pressed  { 
+	image: url(":/pictohd/50x50 menu maintenance active.png"); 
+	border-width: 0px;
+	height: 75px;
+	width: 75px;
+	}
+QPushButton#btHelp { 
+	background-image: url(":/picto/50x50 menu aide.png"); 
+	border-width: 0px;
+	height: 50px;
+	width: 50px;
+	}
+QPushButton#btHelp:pressed  { 
+	background-image: url(":/picto/50x50 menu aide active.png"); 
+	border-width: 0px;
+	height: 50px;
+	width: 50px;
+	}
+QPushButton#btMeasureCard { 
+	image: url(":/pictohd/50x50 menu carte mesure.png"); 
+	border-width: 0px;
+	height: 75px;
+	width: 75px;
+	}
+QPushButton#btMeasureCard:pressed  { 
+	image: url(":/pictohd/50x50 menu carte mesure active.png"); 
+	border-width: 0px;
+	height: 75px;
+	width: 75px;
+	}
+QPushButton#btSave { 
+	image: url(":/pictohd/50x50 menu sauvegarde.png"); 
+	border-width: 0px;
+	height: 75px;
+	width: 75px;
+	}
+QPushButton#btSave:pressed  { 
+	image: url(":/pictohd/50x50 menu sauvegarde active.png"); 
+	border-width: 0px;
+	height: 75px;
+	width: 75px;
+	}
+QPushButton#btExternalCard { 
+	image: url(":/pictohd/50x50 menu carte externe.png"); 
+	border-width: 0px;
+	height: 75px;
+	width: 75px;
+	}
+QPushButton#btExternalCard:pressed  { 
+	image: url(":/pictohd/50x50 menu carte externe active.png"); 
+	border-width: 0px;
+	height: 75px;
+	width: 75px;
+	}
+QPushButton#btCopyLogFiles { 
+	image: url(":/pictohd/50x50 transfert copie.png"); 
+	border-width: 0px;
+	height: 75px;
+	width: 75px;
+	}
+QPushButton#btCopyLogFiles:pressed  { 
+	image: url(":/pictohd/50x50 transfert copie actif.png"); 
+	border-width: 0px;
+	height: 75px;
+	width: 75px;
+	}
+QPushButton#btParameter { 
+	image: url(":/picto/50x50 menu parametre.png"); 
+	border-width: 0px;
+	height: 50px;
+	width: 50px;
+	}
+QPushButton#btParameter:pressed  { 
+	image: url(":/picto/50x50 menu parametre active.png"); 
+	border-width: 0px;
+	height: 50px;
+	width: 50px;
+	}
+QPushButton#btExplorer { 
+	image: url(":/pictohd/50x50 menu explorateur.png"); 
+	border-width: 0px;
+	height: 75px;
+	width: 75px;
+	}
+QPushButton#btExplorer:pressed { 
+	image: url(":/pictohd/50x50 menu explorateur active.png"); 
+	border-width: 0px;
+	height: 75px;
+	width: 75px;
+	}
+QPushButton#btEvPump  { 
+	image: url(":/pictohd/50x50 menu pompe.png"); 
+	border-width: 0px;
+	height: 75px;
+	width: 75px;
+	}
+QPushButton#btEvPump:pressed { 
+	image: url(":/pictohd/50x50 menu pompe active.png"); 
+	border-width: 0px;
+	height: 75px;
+	width: 75px;
+	}
+QPushButton#btAnalyseur { 
+	image: url(":/picto/50x50 menu analyseur.png"); 
+	border-width: 0px;
+	height: 50px;
+	width: 50px;
+	}
+QPushButton#btAnalyseur:pressed  { 
+	image: url(":/picto/50x50 menu analyseur active.png"); 
+	border-width: 0px;
+	height: 50px;
+	width: 50px;
+	}
+QPushButton#btInformation { 
+	image: url(":/pictohd/50x50 menu information.png"); 
+	border-width: 0px;
+	height: 75px;
+	width: 75px;
+	}	
+QPushButton#btInformation:pressed  { 
+	image: url(":/pictohd/50x50 menu information active.png"); 
+	border-width: 0px;
+	height: 75px;
+	width: 75px;
+	}	
+
+
+	/*Fin onglet outils*/
+
+QPushButton#btDetail { 
+	image: url(":/pictohd/35x35 detail mesure.png"); 
+	border-width: 0px;
+	height: 50px;
+	width: 50px;
+	}
+QLabel#lblMesure{
+	color: gray;
+	font: normal bold 35px "GJJHuangCao-S09S";
+ }
+ QLabel#lblValMesure{
+	color: black;
+	font-size: 35px;
+ }
+ 
+QLabel#lblStatusAnalyseur{
+	font-size: 20px;
+	font-weight: bold;
+ }
+QLabel#lblStatusSeuil{
+	font-size: 20px;
+	font-weight: bold;
+	color: red;
+ }
+QLabel#lblStatusWaterFailure{
+	font-size: 20px;
+	font-weight: bold;
+	color: red;
+ }
+QLabel#lblCurrentStream{
+	font-size: 20px;
+	background: black;
+	color: white;
+	margin-left: 2px;
+
+ }
+QLabel#lblCurrentStep{
+	font-size: 20px;
+	background: black;
+	color: white;
+ 	margin-left: 2px;
+	font-weight: bold;
+ }
+QLabel#lblTotalStep{
+	font-size: 20px;
+	background: black;
+	color: white;
+ 	margin-left: 2px;
+	font-weight: bold;
+ }
+QLabel#lblNameStep{
+	font-size: 20px;
+	background: black;
+	color: white;
+ 	margin-left: 2px;
+ }
+ QLabel#lblDateHeure{
+	font-size: 10px;
+	color: gray;
+ }
+ QPushButton#btDeleteSeq{ 
+	image: url(":/picto/50x50 annule.png"); 
+	border-width: 0px;
+	height: 30px;
+	width: 30px;
+}	
+/* Fin Fenêtre Principale
+ /*Fenêtre Carte mesure*/
+
+	
+ /*Fin Fenêtre Carte mesure*/
+ 
+ /*Fenêtre Voie/mesure */
+
+ /*FIN Fenêtre Voie/mesure */
+ 
+ 
+  /*Fenêtre Maintenance*/ 
+QPushButton#btExecuteMaintenance { 
+	image: url(":/pictohd/30x30 lancer maintenance.png"); 
+	border-width: 0px;
+	height: 50px;
+	width: 50px;
+	margin-bottom: 20px;
+	}
+QPushButton#btExecuteMaintenance:pressed { 
+	image: url(":/pictohd/30x30 lancer maintenance active.png"); 
+	border-width: 0px;
+	height: 50px;
+	width: 50px;
+	margin-bottom: 20px;
+	}
+QPushButton#btExecuteMaintenance:disabled { 
+	image: url(":/pictohd/30x30 lancer maintenance grisee.png"); 
+	border-width: 0px;
+	height: 50px;
+	width: 50px;
+	margin-bottom: 20px;
+	}
+QLabel#lblMaintenance:disabled{
+	background-color: gray;
+	color: white;
+	border-radius: 7px;
+	padding-left:5px;
+	padding-right:5px;
+ }
+ /*Fin Fenêtre Maintenance*/
+ 
+ /*Pavé numérique */
+QLabel#lblPaveNumValue{font-size: 20px;color: gray;height: 35px;width: 105px;}
+QLabel#lblPaveNumTxtBorne{font-size: 20px;color: gray;height: 35px;}
+QLabel#lblPaveNumValueBorne{font-size: 20px;color: gray;height: 35px;width: 60px;}
+QPushButton#btPaveNum {color: white;font-size: 20px;background-color: black;border-radius: 7px;border-width: 1px;height: 60px;width: 60px;font-weight: bold;}
+QPushButton#btPaveNum:pressed {color: black;background-color: white;}
+QPushButton#btPaveNum:disabled {color: white;font-size: 20px;background-color: grey;border-width: 1px;border-radius: 7px;height: 60px;width: 60px;}
+QPushButton#btPaveNumPause:pressed {color: black;background-color: white;}
+QPushButton#btPaveNumPause {color: white;font-size: 20px;background-color: black;border-radius: 7px;border-width: 1px;height: 60px;font-weight: bold;}
+ /*FIN pavé numérique*/

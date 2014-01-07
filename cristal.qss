@@ -1,0 +1,230 @@
+QPushButton#btTools { 
+	image: url(menu.png); 
+	}
+QPushButton#btTools:pressed { 
+	image: url(menu_pressed.png); 
+	}
+QPushButton#btDetail { 
+	background-image: url(test.png); 
+	border-width: 0px;
+	height: 50px;
+	width: 50px;
+	}
+QPushButton#btMaintenance { 
+	image: url(test.png); 
+	border-width: 0px;
+	height: 50px;
+	width: 50px;
+	}
+QPushButton#btSequenceur { 
+	background-image: url(test.png); 
+	border-width: 0px;
+	height: 50px;
+	width: 50px;
+	}
+QPushButton#btHelp { 
+	background-image: url(test.png); 
+	border-width: 0px;
+	height: 50px;
+	width: 50px;
+	}
+	
+QPushButton#btAlarm { 
+	image: url(test.png); 
+	border-width: 0px;
+	height: 50px;
+	width: 50px;
+	}
+QPushButton#btPlayPause { 
+	image: url(test.png); 
+	border-width: 0px;
+	height: 50px;
+	width: 50px;
+	}
+QPushButton#btStop { 
+	image: url(test.png); 
+	border-width: 0px;
+	height: 50px;
+	width: 50px;
+	}
+QPushButton#btNext { 
+	image: url(test.png); 
+	border-width: 0px;
+	height: 50px;
+	width: 50px;
+	}
+
+	
+QPushButton:pressed { 
+	color: white;
+	background-color: black;
+	border-width: 1px;
+	border-color: black;
+	border-style: solid;
+	
+	padding: 1px;
+	font-size: 14px;
+	padding-left: 5px;
+	padding-right: 5px;
+
+	}
+QPushButton { 
+	color: black;
+	background-color: white;
+	border-width: 1px;
+	border-color: #339;
+	border-style: solid;
+	padding: 1px;
+	font-size: 14px;
+	padding-left: 5px;
+	padding-right: 5px;
+	margin-bottom: -5px;
+	}
+ 
+ QWidget{
+	background-color: white;
+	margin: 0px;
+	padding:0px;
+ }
+ 
+ QTabWidget{
+	background-color: white;
+	font-size: 17px; /*Pour forcer les tabbar à prendre la bonne dimention fontsize de QTabBar::tab + 2*/
+	margin: 0px;
+	padding:0px;
+ }
+ QTabWidget::tab-bar {
+     left: 5px; /* move to the right by 5px */
+ }
+
+ QTabWidget::pane { /* The tab widget frame */
+     border-top: 1px solid black;
+ }
+
+ /* Style the tab using the tab sub-control. Note that
+     it reads QTabBar _not_ QTabWidget */
+ QTabBar::tab {
+     background: white;
+     border: 0px solid black;
+     border-bottom-color: black; /* same as the pane color */
+     border-top-left-radius: 7px;
+     border-top-right-radius: 7px;
+	 padding-left: 5px;
+	 padding-right: 5px;
+	 padding-top:5px;
+	 padding-bottom:2px;
+	 margin-top:2px;
+	 font-size: 15px; /*ne pas oublier le fontsize de QTabWidget en cas de modif */
+	 height: 20px;
+
+	
+ }
+
+ QTabBar::tab:!selected {
+     border-color: black;
+     border-bottom-color: black; /* same as pane color */
+	 border: 1px solid black;
+	 border-bottom: 0px;
+
+ }
+
+ QTabBar::tab:selected {
+	 font-weight: bold;
+ }
+ 
+ QLabel{
+ margin-top: -3px;
+	font-size: 15px;
+ }
+ 
+ QLabel#lblMesure{
+	color: gray;
+	font-size: 35px;
+	font-weight: bold;
+ }
+ QLabel#lblValMesure{
+	color: black;
+	font-size: 35px;
+ }
+ 
+QLabel#lblStatusAnalyseur{
+	font-size: 20px;
+	font-weight: bold;
+ }
+QLabel#lblCurrentStream{
+	font-size: 20px;
+	background: black;
+	color: white;
+	margin-left: 2px;
+
+ }
+QLabel#lblCurrentStep{
+	font-size: 20px;
+	background: black;
+	color: white;
+ 	margin-left: 2px;
+	font-weight: bold;
+ }
+QLabel#lblTotalStep{
+	font-size: 20px;
+	background: black;
+	color: white;
+ 	margin-left: 2px;
+	font-weight: bold;
+ }
+QLabel#lblNameStep{
+	font-size: 20px;
+	background: black;
+	color: white;
+ 	margin-left: 2px;
+ }
+ QLabel#lblDateHeure{
+	font-size: 10px;
+	color: gray;
+ }
+ 
+ /*Fenêtre Carte mesure*/
+ QPushButton#btOnRelais1 { 
+	image: url(btOnActifBas32x32.png); 
+	border-width: 0px;
+	height: 32px;
+	width: 32px;
+	}
+ QPushButton#btOnRelais2 { 
+	image: url(btOnActifBas32x32.png); 
+	border-width: 0px;
+	height: 32px;
+	width: 32px;
+	}
+ QPushButton#btOffRelais1 { 
+	image: url(btOnActifBas32x32.png); 
+	border-width: 0px;
+	height: 32px;
+	width: 32px;
+	}
+ QPushButton#btOffRelais2 { 
+	image: url(btOnActifBas32x32.png); 
+	border-width: 0px;
+	height: 32px;
+	width: 32px;
+	}
+ QPushButton#btBack { 
+	image: url(test.png); 
+	border-width: 0px;
+	height: 50px;
+	width: 50px;
+	}
+ QPushButton#btNextPage { 
+	image: url(btFlecheBasActifHaut25x25.png); 
+	border-width: 0px;
+	height: 25px;
+	width: 25px;
+	}
+ QPushButton#btPreviousPage { 
+	image: url(btFlecheBasActifHaut25x25.png); 
+	border-width: 0px;
+	height: 25px;
+	width: 25px;
+	}
+	
+ /*Fin Fenêtre Carte mesure*/

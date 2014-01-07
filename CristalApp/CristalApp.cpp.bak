@@ -1,0 +1,325 @@
+// Cristal.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include "header.h"
+#include "wincrypt.h"
+#include <windows.h>
+#include <stdio.h>
+
+#include <winioctl.h > 
+
+typedef BOOL (__stdcall *GetSystemMemoryDivisionProc)(LPDWORD,LPDWORD,LPDWORD);
+typedef DWORD (__stdcall *SetSystemMemoryDivisionProc)(DWORD);
+
+#define DEBUG_S
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	TCHAR szText[MAX_PATH];
+	TCHAR szMessage[260];
+	HANDLE hCristalAppOnce = NULL;
+	BOOL bReturn;
+	CAnalyseur Analyseur;
+	CSocketIHM SocketIHM;
+	CCarteIO CarteIO;
+	CCarteMesure CarteMesure;
+	CCarteJbusSlave CarteJbusSlave;
+
+
+	/*///DEBUT BLOCK de protection
+	HANDLE hFileSecu;
+	FILETIME ftCreationTime;
+	SYSTEMTIME  stCreationTime;
+	TCHAR szCle[260];
+	TCHAR szHashToCheck[260];
+	TCHAR szHashMake[260];
+	BOOL bError = FALSE;
+
+
+	//Récupéartion de la valeur de la clé de protéction
+	dwGetPrivateProfileString(_T("Cles"),_T("cle_une"),_T(""),szHashToCheck
+							 ,sizeof(szText)/sizeof(TCHAR),_T("\\Hard Disk\\fdso.exe"));
+
+
+	//Récupération des composantes pour créer le hash
+	hFileSecu = CreateFile(_T("\\Hard Disk2\\fdso.exe"), 
+							GENERIC_READ, FILE_SHARE_READ, NULL,
+							OPEN_EXISTING, 0, NULL);
+
+#ifdef DEBUG_S
+	if(hFileSecu == INVALID_HANDLE_VALUE)
+	{
+		_tprintf(_T("Fermeture APPLI"));
+	}
+#endif
+	
+	bError = GetFileTime(hFileSecu, &ftCreationTime, NULL, NULL);
+
+#ifdef DEBUG_S
+	if(!bError)
+	{
+		long lError = GetLastError();
+		_stprintf( szMessage , _T( "ERREUR : %l"), lError);
+		_tprintf(szMessage);
+
+	}
+#endif
+
+	FileTimeToSystemTime(&ftCreationTime, &stCreationTime);
+	
+#ifdef DEBUG_S
+	_stprintf( szCle 
+			   , _T( "%04d/%02d/%02d_%02d:%02d:%02d_END")
+			   , stCreationTime.wYear,stCreationTime.wMonth,stCreationTime.wDay,stCreationTime.wHour
+			   , stCreationTime.wMinute,stCreationTime.wSecond);
+			   
+	_tprintf(szCle);
+#endif
+	
+	//Cryptage
+	HCRYPTHASH hHash;
+	HCRYPTPROV hProv;
+	bError = CryptAcquireContext(&hProv, NULL, NULL, PROV_RSA_AES, CRYPT_VERIFYCONTEXT);
+#ifdef DEBUG_S
+	if(!bError)
+	{
+		DWORD dwHashError = GetLastError();
+		switch(dwHashError)
+		{
+			case ERROR_BUSY : _tprintf(_T("Error CryptAcquireContext : ERROR_BUSY \n"));
+				break;
+			case ERROR_NOT_ENOUGH_MEMORY : _tprintf(_T("Error CryptAcquireContext : ERROR_NOT_ENOUGH_MEMORY\n"));
+				break;
+			case NTE_PROVIDER_DLL_FAIL : _tprintf(_T("Error CryptAcquireContext : NTE_PROVIDER_DLL_FAIL\n"));
+				break;
+			case NTE_NO_MEMORY : _tprintf(_T("Error CryptAcquireContext : NTE_NO_MEMORY\n"));
+				break;
+			case NTE_PROV_DLL_NOT_FOUND : _tprintf(_T("Error CryptAcquireContext : NTE_PROV_DLL_NOT_FOUND\n"));
+				break;
+			default : _tprintf(_T("Error CryptAcquireContext : Autre erreur\n"));
+				break;
+		}
+	}
+#endif
+
+	bError = CryptCreateHash(hProv, CALG_SHA_256,0,0, &hHash);
+#ifdef DEBUG_S
+	if(!bError)
+	{
+		DWORD dwHashError = GetLastError();
+		switch(dwHashError)
+		{
+			case ERROR_INVALID_HANDLE : _tprintf(_T("Error CryptCreateHash : Invalide handle\n"));
+				break;
+			case ERROR_NOT_ENOUGH_MEMORY : _tprintf(_T("Error CryptCreateHash : ERROR_NOT_ENOUGH_MEMORY\n"));
+				break;
+			case NTE_NO_MEMORY : _tprintf(_T("Error CryptCreateHash : NTE_NO_MEMORY\n"));
+				break;
+			default : _tprintf(_T("Error CryptCreateHash : Autre erreur\n"));
+				break;
+		}
+	}
+#endif
+
+	DWORD dwDataLen = 23;
+	unsigned char tusSortieHash[260];
+	bError = CryptHashData(hHash, (BYTE*)szCle, dwDataLen, 0);
+#ifdef DEBUG_S
+	if(!bError)
+	{
+		DWORD dwHashError = GetLastError();
+		switch(dwHashError)
+		{
+			case ERROR_INVALID_HANDLE : _tprintf(_T("Error CryptHashData : Invalide handle\n"));
+				break;
+			default : _tprintf(_T("Error CryptHashData : Autre erreur\n"));
+				break;
+		}
+	}
+#endif
+
+	dwDataLen = 32;
+	bError = CryptGetHashParam(hHash, HP_HASHVAL, tusSortieHash, &dwDataLen, 0);
+#ifdef DEBUG_S
+	if(!bError)
+	{
+		DWORD dwHashError = GetLastError();
+		switch(dwHashError)
+		{
+			case ERROR_INVALID_HANDLE : _tprintf(_T("Error CryptGetHashParam : Invalide handle\n"));
+				break;
+			case ERROR_MORE_DATA : _tprintf(_T("Error CryptGetHashParam : ERROR_MORE_DATA\n"));
+				break;
+			case NTE_BAD_UID : _tprintf(_T("Error CryptGetHashParam : NTE_BAD_UID\n"));
+				break;
+			default : _tprintf(_T("Error CryptGetHashParam : Autre erreur\n"));
+				break;
+		}
+	}
+#endif
+	
+	int l=0;
+	for(int i=0; i<(int)dwDataLen; i++)
+	{
+		l  +=  _stprintf(szHashMake + l,_T("%02x"),tusSortieHash[i]);
+	}
+
+#ifdef DEBUG_S
+	_tprintf(_T("\nHash1 :"));
+	_tprintf(szHashMake);
+	_tprintf(_T("\nHash2 :"));
+	_tprintf(szHashToCheck);
+#endif
+
+	//Comapare les hashs pour savoir si le résultat est le même
+	BOOL bCompareHash = TRUE;
+	for(int j=0; j<32; j++)
+	{
+		if(szHashMake[j] != szHashToCheck[j])
+		{
+			_tprintf(_T("\n%02x : %02x"), szHashMake[j],szHashToCheck[j] );
+			bCompareHash = FALSE;
+			j=32;
+		}
+	}
+
+	CloseHandle(hFileSecu);
+
+	if(!bCompareHash)
+	{
+#ifdef DEBUG_S
+		_tprintf(_T("\n ERREUR DU FICHIER DE SECU !!"));
+#else
+		CloseHandle(hCristalAppOnce);
+		return -1;
+#endif
+	}
+	///FIN BLOCK de protection
+
+*/	
+	
+	//Initialise la taille de la mémoire
+	int nStoragePages = 2048; // x4 donne la taille en Ko affecté au stockage.
+
+	HINSTANCE hCoreDll = LoadLibrary(_T("coredll.dll"));
+	SetSystemMemoryDivisionProc procSet = (SetSystemMemoryDivisionProc)GetProcAddress(
+															hCoreDll, _T("SetSystemMemoryDivision"));
+
+	DWORD dwResult = procSet(nStoragePages);
+
+	//Process result code
+
+	FreeLibrary(hCoreDll);
+
+	// protection lancement multiple
+	hCristalAppOnce = OpenEvent(EVENT_ALL_ACCESS,FALSE,_T("CRISTAL_APP_ONCE"));
+	if (hCristalAppOnce)
+	{
+		CloseHandle(hCristalAppOnce);
+		return -1;
+	}
+	else hCristalAppOnce = CreateEvent(NULL,TRUE,FALSE,_T("CRISTAL_APP_ONCE"));
+
+	_tprintf(_T(" CHARGEMENT CONFIGURATION...\n\n"));
+
+	Analyseur.m_ExternalInterface.SetExternalInterface(&SocketIHM,&CarteIO,&CarteMesure,&CarteJbusSlave);
+	SocketIHM.m_ExternalInterface.SetExternalInterface(&SocketIHM,&CarteIO,&CarteMesure,&CarteJbusSlave);
+	SocketIHM.SetAccess(TRUE,TRUE);
+
+	// chargement config
+	bReturn = bCopyFile(szGetFullPathName(_T("MsgErrorIHM.ini"),szText),SZ_FIC_TEMP,FALSE);
+	if (bReturn) ReadConfigMsgError(SZ_FIC_TEMP);
+
+	if (bReturn) bReturn = bCopyFile(szGetFullPathName(_T("config.ini"),szText),SZ_FIC_TEMP,FALSE);
+ 	if (bReturn) bReturn = Analyseur.bReadConfig(SZ_FIC_TEMP);
+	if (bReturn) bReturn = Analyseur.bReadCycle(SZ_FIC_TEMP);
+	if (bReturn) bReturn = bCopyFile(szGetFullPathName(_T("InterfaceIHM.ini"),szText),SZ_FIC_TEMP,FALSE);
+	if (bReturn) bReturn = SocketIHM.bReadConfig(SZ_FIC_TEMP,&Analyseur);
+	if (bReturn) bReturn = bCopyFile(szGetFullPathName(_T("InterfaceIO.ini"),szText),SZ_FIC_TEMP,FALSE);
+	if (bReturn) bReturn = CarteIO.bReadConfig(SZ_FIC_TEMP,&Analyseur);
+	if (bReturn) bReturn = bCopyFile(szGetFullPathName(_T("InterfaceMesure.ini"),szText),SZ_FIC_TEMP,FALSE);
+	if (bReturn) bReturn = CarteMesure.bReadConfig(SZ_FIC_TEMP,&Analyseur);
+	if (bReturn) bReturn = bCopyFile(szGetFullPathName(_T("InterfaceJbusSlave.ini"),szText),SZ_FIC_TEMP,FALSE);
+	if (bReturn) bReturn = CarteJbusSlave.bReadConfig(SZ_FIC_TEMP,&Analyseur);
+
+
+
+	_tprintf(_T("****************************************\n"));
+	_tprintf(_T("* BILAN DES TESTS CONFIG ANALYSEUR: %s *\n"),bReturn ? _T("OK") : _T("KO"));
+	_tprintf(_T("****************************************\n\n"));
+	
+
+	TRACE_LOG_MSG(_T("APPLICATION STARTED"));
+
+	TCHAR ch;
+
+	if (bReturn)
+	{
+
+
+		// lancement des tâche
+		SocketIHM.hCreateThread();
+		while (!SocketIHM.bGetInRunThread()) Sleep(1000);
+		CarteIO.hCreateThread();
+		while (!CarteIO.bGetInRunThread()) Sleep(1000);
+		CarteMesure.hCreateThread();
+		while (!CarteMesure.bGetInRunThread()) Sleep(1000);
+		CarteJbusSlave.hCreateThread();
+		while (!CarteJbusSlave.bGetInRunThread()) Sleep(1000);
+		Analyseur.hCreateThread();
+
+		_tprintf(_T("* Appuyer sur la touche <ENTER> pour quitter l'application: %s *\n"),bReturn ? _T("OK") : _T("KO"));
+
+		do 
+		{
+			Analyseur.SetRemoteControl();
+			if (Analyseur.m_ExternalInterface.m_pCarteIO->bGetError() || Analyseur.m_ExternalInterface.m_pCarteJbusSlave->bGetError())
+			{
+				TRACE_DEBUG_IHM(eError,eCycle,eErrorAppRunThread);
+				Analyseur.m_bStatusFailure.bSetVal(1);
+			}
+			ch = GetKeyState(VK_ESCAPE);//getchar();
+			ch |= GetKeyState(VK_RETURN);//getchar();
+			Sleep(1000);
+		}
+		while ((ch & 0x8000) == 0);
+
+		Analyseur.Stop();
+		CarteMesure.Stop();
+		CarteIO.Stop();
+		CarteJbusSlave.Stop();
+		SocketIHM.Stop();
+
+
+
+#ifndef _WIN32_WCE
+		Analyseur.bWriteConfig(szGetFullPathName(_T("configSave.ini"),szText));
+		if (bReturn) bReturn = SocketIHM.bWriteConfig(szGetFullPathName(_T("InterfaceIHMSave.ini"),szText));
+		if (bReturn) bReturn = CarteIO.bWriteConfig(szGetFullPathName(_T("InterfaceIOSave.ini"),szText));
+		if (bReturn) bReturn = CarteMesure.bWriteConfig(szGetFullPathName(_T("InterfaceMesureSave.ini"),szText));
+		if (bReturn) bReturn = CarteJbusSlave.bWriteConfig(szGetFullPathName(_T("InterfaceJbusSlaveSave.ini"),szText));
+	
+		WriteConfigMsgError(szGetFullPathName(_T("MsgErrorIHMSave.ini"),szText));
+#endif
+	}
+
+	else
+	{
+		do 
+		{
+			ch = GetKeyState(VK_ESCAPE);//getchar();
+			ch |= GetKeyState(VK_RETURN);//getchar();
+			Sleep(1000);
+		}
+		while ((ch & 0x8000) == 0);
+	}
+
+	CloseHandle(hCristalAppOnce);
+
+	//HardResetPanelPC();
+	return 0;
+}
+
+
+

@@ -1,0 +1,110 @@
+<RCC>
+    <qresource prefix="/">
+        <file>picto/30x30 on.png</file>
+        <file>picto/30x30 on active.png</file>
+        <file>picto/30x30 off.png</file>
+        <file>picto/30x30 off active.png</file>
+        <file>picto/30x30 lancer maintenance.png</file>
+        <file>picto/30x30 lancer maintenance active.png</file>
+        <file>picto/30x30 lancer maintenance grisee.png</file>
+        <file>picto/25x25flechebas.png</file>
+        <file>picto/25x25flechehaut.png</file>
+        <file>picto/25x25flechebasgrisee.png</file>
+        <file>picto/25x25flechehautgrisee.png</file>
+        <file>picto/50x50 fleche gauche.png</file>
+        <file>picto/40x40 appliquer.png</file>
+        <file>picto/40x40 appliquer active.png</file>
+        <file>picto/40x40 appliquer grisee.png</file>
+        <file>picto/40x40 alarme mesure.png</file>
+        <file>picto/40x40 alarme mesure active.png</file>
+        <file>picto/40x40 alarme mesure gif.png</file>
+        <file>picto/40x40playmesure.png</file>
+        <file>picto/40x40playmesureactive.png</file>
+        <file>picto/40x40 stop mesure.png</file>
+        <file>picto/40x40 stop mesure active.png</file>
+        <file>picto/40x40 next mesure.png</file>
+        <file>picto/40x40 next mesure active.png</file>
+        <file>picto/50x50 menu sequenceur.png</file>
+        <file>picto/50x50 menu sequenceur active.png</file>
+        <file>picto/50x50 menu maintenance.png</file>
+        <file>picto/50x50 menu maintenance active.png</file>
+        <file>picto/50x50 menu aide.png</file>
+        <file>picto/50x50 menu aide active.png</file>
+        <file>picto/50x50 menu carte mesure.png</file>
+        <file>picto/50x50 menu carte mesure active.png</file>
+        <file>picto/50x50 menu sauvegarde.png</file>
+        <file>picto/50x50 menu sauvegarde active.png</file>
+        <file>picto/50x50 menu carte externe.png</file>
+        <file>picto/50x50 menu carte externe active.png</file>
+        <file>picto/50x50 menu parametre.png</file>
+        <file>picto/50x50 menu parametre active.png</file>
+        <file>picto/50x50 menu explorateur.png</file>
+        <file>picto/50x50 menu explorateur active.png</file>
+        <file>picto/50x50 menu pompe.png</file>
+        <file>picto/50x50 menu pompe active.png</file>
+        <file>picto/50x50 menu analyseur.png</file>
+        <file>picto/50x50 menu analyseur active.png</file>
+        <file>picto/50x50 menu information.png</file>
+        <file>picto/50x50 menu information active.png</file>
+        <file>picto/35x35 detail mesure.png</file>
+        <file>picto/50x50 fleche gauche grisee.png</file>
+        <file>picto/50x50 annule.png</file>
+        <file>picto/50x50 arret fin cycle.png</file>
+        <file>picto/30x30 Ana-tor active.png</file>
+        <file>picto/30x30 Ana-tor inactive.png</file>
+        <file>picto/30x30 Plus active.png</file>
+        <file>picto/30x30 Plus grisee.png</file>
+        <file>picto/30x30 Plus.png</file>
+        <file>pictohd/35x35 detail mesure.png</file>
+        <file>pictohd/40x40 alarme mesure.png</file>
+        <file>pictohd/40x40 alarme mesure active.png</file>
+        <file>pictohd/40x40 alarme mesure gif.png</file>
+        <file>pictohd/40x40playmesure.png</file>
+        <file>pictohd/40x40playmesureactive.png</file>
+        <file>pictohd/40x40 stop mesure.png</file>
+        <file>pictohd/40x40 stop mesure active.png</file>
+        <file>pictohd/50x50 arret fin cycle.png</file>
+        <file>pictohd/50x50 menu maintenance.png</file>
+        <file>pictohd/50x50 menu maintenance active.png</file>
+        <file>pictohd/50x50 menu carte mesure.png</file>
+        <file>pictohd/50x50 menu carte mesure active.png</file>
+        <file>pictohd/50x50 menu carte externe.png</file>
+        <file>pictohd/50x50 menu carte externe active.png</file>
+        <file>pictohd/50x50 menu pompe.png</file>
+        <file>pictohd/50x50 menu pompe active.png</file>
+        <file>pictohd/50x50 menu sequenceur.png</file>
+        <file>pictohd/50x50 menu sequenceur active.png</file>
+        <file>pictohd/50x50 transfert copie actif.png</file>
+        <file>pictohd/50x50 transfert copie.png</file>
+        <file>pictohd/50x50 menu explorateur.png</file>
+        <file>pictohd/50x50 menu explorateur active.png</file>
+        <file>pictohd/50x50 menu information.png</file>
+        <file>pictohd/50x50 menu information active.png</file>
+        <file>pictohd/50x50 menu sauvegarde.png</file>
+        <file>pictohd/50x50 menu sauvegarde active.png</file>
+        <file>pictohd/50x50 off active.png</file>
+        <file>pictohd/50x50 fleche gauche.png</file>
+        <file>pictohd/50x50 annule.png</file>
+        <file>pictohd/30x30 lancer maintenance.png</file>
+        <file>pictohd/30x30 lancer maintenance active.png</file>
+        <file>pictohd/30x30 lancer maintenance grisee.png</file>
+        <file>pictohd/40x40 appliquer.png</file>
+        <file>pictohd/40x40 appliquer active.png</file>
+        <file>pictohd/40x40 appliquer grisee.png</file>
+        <file>pictohd/30x30 on.png</file>
+        <file>pictohd/30x30 on active.png</file>
+        <file>pictohd/30x30 off.png</file>
+        <file>pictohd/30x30 off active.png</file>
+        <file>pictohd/40x40 next mesure.png</file>
+        <file>pictohd/75x75 fleche bas.png</file>
+        <file>pictohd/75x75 fleche bas active.png</file>
+        <file>pictohd/75x75 fleche bas grisee.png</file>
+        <file>pictohd/75x75 fleche haut active.png</file>
+        <file>pictohd/75x75 fleche haut grisee.png</file>
+        <file>pictohd/75x75 fleche haut.png</file>
+        <file>pictohd/30x30 Ana-tor active.png</file>
+        <file>pictohd/30x30 Ana-tor inactive.png</file>
+        <file>picto/30x30 moins active.png</file>
+        <file>picto/30x30 moins.png</file>
+    </qresource>
+</RCC>

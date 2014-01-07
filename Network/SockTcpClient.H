@@ -1,0 +1,19 @@
+/////////////////////////////////////////////////////////////////////////////
+// CSocketTcpClient window
+#pragma once
+
+class NETWORK_API CSocketTcpClient : public CSocketBase
+{
+// Construction
+public:
+	CSocketTcpClient();
+	virtual ~CSocketTcpClient();
+
+/////////////////////////////////// FONCTIONS
+protected:
+	SOCKADDR_IN m_sinClient;
+protected:
+	virtual long lConnect();          
+};
+
+/////////////////////////////////////////////////////////////////////////////

@@ -1,0 +1,10 @@
+#include "cristalqtarm.h"
+#include <QtGui/QApplication>
+
+int main(int argc, char *argv[])
+{
+	QApplication a(argc, argv);
+	CristalQTARM w;
+	w.showMaximized();
+	return a.exec();
+}

@@ -1,0 +1,179 @@
+#include "stdafx.h"
+#include "header.h"
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////
+// CAnalyseur
+////////////////////////////////////////////////////////////////
+/*@!************************************************************************
+* NOM:                      CAnalyseur:CAnalyseur
+* ROLE:                     Constructeur de la classe CAnalyseur
+* ALGORITHME:
+*    Point d'entree
+*    Initialisation des membres de la classe
+*    Point de sortie
+***********************************************************************@!)*/
+
+CAnalyseur::CAnalyseur():CListStream()
+{
+}
+
+
+/*@!************************************************************************
+* NOM:                      CAnalyseur::~CAnalyseur
+* ROLE:                     Destructeur de la classe client
+* ALGORITHME:
+***********************************************************************@!)*/
+CAnalyseur::~CAnalyseur()
+{
+}
+
+
+// gestion des cycles
+DWORD CAnalyseur::RunThread()
+{
+#define BREAK_NBR		9999
+	int i;
+	int j;
+	BOOL bReturn = TRUE;
+	CStream *pStream = NULL;
+	//CStream *pStream2 = NULL;
+	int iElapse;
+	m_bRun = TRUE;
+	CElemInt8 *pNumVoie;
+	CElemInt16 *pDuree;
+
+	m_bStateCalib.bSetVal(0);
+	m_bStateZero.bSetVal(0);
+	m_bStateCleanup.bSetVal(0);
+	m_bStatusFailure.bSetVal(0);
+	m_bStatusRealTime.bSetVal(0);
+	m_bStatusSupervision.bSetVal(0);
+	m_CmdCycleCalib.bSetVal(0xFF);
+	m_CmdCycleCalibInLine.bSetVal(0xFF);
+	m_CmdCycleZero.bSetVal(0xFF);
+	m_CmdCycleCleanup.bSetVal(0xFF);
+
+	m_CmdSaveNumConfig.bSetVal(m_NumCurrentConfig.ucGetVal());
+	m_CmdLoadNumConfig.bSetVal(m_NumCurrentConfig.ucGetVal());
+
+	m_bInRunThread = TRUE;
+	while (m_bRun)
+	{
+		while (m_bRun && (!m_CmdRun.ucGetVal() || m_CmdPause.ucGetVal()))
+		{
+			// gestion des configs
+			GestionConfigFlash();
+			Sleep(1000);
+		}
+		for (i = 0;m_bRun && m_CmdRun.ucGetVal() && (i < NBR_SEQUENCE_CYCLE_MAX);i++)
+		{
+			// exec des cycles
+			pNumVoie = (CElemInt8*)m_ListSequenceNum.pGetAt(i);
+			pStream = (pNumVoie != NULL) ? pGetAt(pNumVoie->ucGetVal()) : NULL;
+			pDuree = (CElemInt16*)m_ListSequenceDuree.pGetAt(i);
+			if (pStream && pDuree && (pNumVoie->ucGetVal() < m_iNbrStream))
+			{
+				m_NumCurrentStream.bSetVal(pNumVoie->ucGetVal());
+				// init le compteur de cycle
+				pStream->m_CounterCycle.bSetVal(0);
+				m_CmdJumpStep.bSetVal(0);
+
+				iElapse = 0;
+				while (    m_CmdRun.ucGetVal() 
+						&& ((m_CmdJumpStep.nGetVal() != BREAK_NBR) || (pStream->m_CounterCycle.nGetVal() != BREAK_NBR)) 
+						&& ((iElapse + pStream->m_ElemCycle.m_Duration.nGetVal()) < pDuree->nGetVal()*60))
+				{
+					
+					if (m_CmdStopEndCycle.ucGetVal())
+					{
+						while (m_CmdStopEndCycle.ucGetVal() && m_CmdRun.ucGetVal())
+						{
+							// action périodique
+							if (m_CmdCycleCalib.ucGetVal() != 0xFF)
+							{
+								pStream->m_StatusWaterFailure.bSetVal(0);
+								ExecuteCalib();
+								m_CmdCycleCalib.bSetVal(0xFF);
+							}
+							if (m_CmdCycleCalibInLine.ucGetVal() != 0xFF)
+							{
+								
+								pStream->m_StatusWaterFailure.bSetVal(0);
+								ExecuteCalibInLine();
+								m_CmdCycleCalibInLine.bSetVal(0xFF);
+							}
+							if (m_CmdCycleZero.ucGetVal() != 0xFF)
+							{
+								pStream->m_StatusWaterFailure.bSetVal(0);
+								ExecuteZero();
+								m_CmdCycleZero.bSetVal(0xFF);
+							}
+							if (m_CmdCycleCleanup.ucGetVal() != 0xFF)
+							{
+								pStream->m_StatusWaterFailure.bSetVal(0);
+								ExecuteCleanup();
+								m_CmdCycleCleanup.bSetVal(0xFF);
+							}
+							Sleep(1000);
+						}
+					}
+					// cycle mesure
+					// reset du temps passé dans le cycle
+					m_CurrentTimeCycle.bSetVal(0);
+					m_CmdJumpStep.bSetVal(0);
+					CElemCycle::m_CurrentStep.m_Step.bSetVal(0);
+					
+					//Exécute le traitement pour vérfier les seuils des mesures de la voie
+					bReturn = pStream->bExecute(&m_CmdRun,&m_CmdStopEndCycle,&m_CmdPause,&m_CmdJumpStep,&m_bStatusRealTime,&m_CurrentTimeCycle,m_ExternalInterface,&m_NumCurrentStream);
+					if (!bReturn)
+					{
+						TRACE_DEBUG_IHM(eError,eCycle,eErrorAppRunThread);
+						m_bStatusFailure.bSetVal(1);
+					}
+					
+					//Si le cycle a été arrété, ne pas faire de trace de mesure ou qu'un cycle est en défaut (eau, température, etc ...)
+					if(m_CmdRun.ucGetVal() || (m_CmdJumpStep.nGetVal()==9999) )
+					{
+						//Trace des moyennes de mesures
+						TRACE_LOG_MESURE(pStream, &m_NumCurrentStream);				
+					}
+
+					//Si une demande d'ârret fin de cycle a été commandé, mettre le cmdRun à 0 à la fin du cycle
+					if(m_CmdStopEndCycle.ucGetVal())
+					{
+						m_CmdRun.bSetVal(0);
+						m_CmdStopEndCycle.bSetVal(0);
+					}
+
+					// incremente le compteur de cycle et de temps
+					if ((m_CmdJumpStep.nGetVal() != BREAK_NBR) && (pStream->m_CounterCycle.nGetVal() > BREAK_NBR))
+					{
+						pStream->m_CounterCycle.bSetVal(0);
+					}
+					iElapse += m_CurrentTimeCycle.nGetVal();
+					m_CurrentTimeCycle.bSetVal(0);
+					
+					// si pas actif, un seul passage puis cycle suivant
+					if (!pStream->m_Active.ucGetVal())
+					{
+						m_CmdJumpStep.bSetVal(BREAK_NBR);
+						pStream->m_CounterCycle.bSetVal(BREAK_NBR);
+					}
+
+				}
+				if (pStream->m_Active.ucGetVal() && ((m_CmdJumpStep.nGetVal() != BREAK_NBR) || (pStream->m_CounterCycle.nGetVal() != BREAK_NBR)))
+				{
+					// temps restant en ms
+					j = pDuree->nGetVal()*60 - iElapse;
+					// temps restant en s
+					while ((j-- > 0) && m_CmdRun.ucGetVal() && !m_CmdStopEndCycle.ucGetVal()) Sleep(1000);
+				}
+			}
+		}
+	}
+
+	return 0;
+}

@@ -1,0 +1,8 @@
+Please read and accept the CFCU LICENSE AGREEMENT from file
+
+./mm_CrtDbg_LICENSE.txt
+
+Thank you!
+
+You are not allowed to use or distribute the files from this project without accepting the LICENSE AGREEMENT.
+If you don't accept the agreement, you must immediately stop using, reading and owning this projects files.

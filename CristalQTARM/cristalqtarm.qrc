@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/CristalQTARM">
+        <file>CristalQTARM.rc</file>
+    </qresource>
+</RCC>

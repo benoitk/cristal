@@ -1,0 +1,47 @@
+<UI version="4.0" >
+ <class>CristalQTARMClass</class>
+ <widget class="QMainWindow" name="CristalQTARMClass" >
+  <property name="objectName" >
+   <string notr="true">CristalQTARMClass</string>
+  </property>
+  <property name="geometry" >
+   <rect>
+	<x>0</x>
+	<y>0</y>
+	<width>600</width>
+	<height>400</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>CristalQTARM</string>
+  </property>
+  <widget class="QWidget" name="centralWidget" />
+  <widget class="QMenuBar" name="menuBar">
+   <widget class="QMenu" name="menu_File" >
+	<property name="title" >
+	 <string>&amp;File</string>
+	</property>
+	<addaction name="actionExit" />
+   </widget>
+   <addaction name="menu_File" />
+  </widget>
+   <action name="actionExit" >
+   <property name="text" >
+	<string>E&amp;xit</string>
+   </property>
+  </action>
+ </widget>
+ <layoutDefault spacing="6" margin="11" />
+ <pixmapfunction></pixmapfunction>
+ <resources>
+   <include location="cristalqtarm.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>actionExit</sender>
+   <signal>triggered()</signal>
+   <receiver>CristalQTARMClass</receiver>
+   <slot>close()</slot>
+  </connection>
+ </connections>
+</UI>

@@ -1,0 +1,208 @@
+*** Multi-licensing License Agreement ***
+
+Preamble:
+When software is multi-licensed, recipients can choose which terms under which they want to use or distribute the 
+software. All work belonging or refering to this License Document is covered under one of the following Licenses:
+
+a) the "GNU GENERAL PUBLIC LICENSE Version 3" (GPLv3)
+   or
+b) the "CFCU LICENSE AGREEMENT"
+
+Your next task:
+After reading the License Documents, you need to select  and accept one of the previously named Licenses before
+continuing using the covered work. (You may also select and accept all of the above named Licenses simultaneously).
+If you are not able to accept at least one of the above named Licenses, you need to stop using this work and must
+delete its files from all locations where you stored it.
+
+
+a) A copy of the "GNU GENERAL PUBLIC LICENSE Version 3" (GPLv3) is located within the file "gpl-3.0.txt".
+   The file "gpl-3.0.txt" is located within the same directory whre you got the file you are reading now.
+
+b) A copy of the "CFCU LICENSE AGREEMENT" starts below this line:
+_________________________________________________________________
+
+
+CFCU LICENSE AGREEMENT
+
+"CFCU" stands for:
+"Cheap For Commercial Use, but free for private and non-profit use" and is an Unfree Software License for Open Source.
+
+How much is it?
+===============
+This question is answered at the end of this CFCU license agreement. Please read the agreement first.
+
+
+Preamble
+========
+This Non-Exclusive Software License Agreement (the "Agreement") is made between you (if you are an individual who will 
+make personal use of the Software) or your organization (if you are acting on behalf of an organization who will use the 
+Software) (in either case, "You" or "Your") and the person known as Modem-Man@gmx.net (the "Licensor" or 
+"Copyright Holder"). The effective date of this Agreement is when You install the accompanying files to Your computer.
+For good and valuable consideration (the receipt and sufficiency of which are hereby acknowledged), We agree as follows:
+
+Definitions. 
+=========
+"Copyright Holder" and "Licensor" means the individual Maik Reiss, Germany (alias Modem Man, alias modem-man@gmx.net).
+
+"You" and "your" means any person who would like to use, copy, distribute, or modify the package.
+
+"Package" means the collection of files distributed by the copyright holder, and derivatives of that collection and/or of 
+those files. Any given package must always contain this license file.
+	
+The term "Software" as used in this Agreement means the Software Package
+        "Modem Man's _CrtDbg Port for Windows CE", 
+		short named "_CrtDbg for Windows CE"
+		or short named "_CrtDbg for WinCE"
+		or short named "CrtDbg for Windows CE"
+		or short named "CrtDbg for WinCE"
+		or short named "crtdbg4wince"
+as well as accompanying user documentation, and any updates thereto provided by Licensor.
+The only valid exception is for all files inside ./contrib directory. The files inside ./contrib directory folder are provided by 
+one (ore more) contributors and may be licensed by other licenses or may be free for public domain. You can accept or decline
+their license completely separately from the Agreement you're reading now.
+
+"using this software package" means use this software package for creating or improving or debugging or checking 
+another software, temporarily or permanent including this Software Package into Your own Source Code to improve and/or 
+debug and/or  check Your own Source Code and finally, temporarily or permanent linking this Software Package with Your 
+own Source Code to improve and/or debug and/or  check Your own Programs.
+
+"Distribute" means providing a copy of the package or making it accessible to anyone else, or in the case of a company or 
+organization, to others outside of your company or organization.
+	
+
+Details:
+=======
+This License establishes the Terms under which the given Software Package may be copied, modified, distributed, and/or 
+redistributed. The major intent is that the Copyright Holder gets some tiny share of the commercial benefit You earned by using 
+this Software Package. Sharing a small amount of your financial (or time==money) benefit with a person who spent his spare 
+time to make you earning the benefit, must be considered fair.
+
+More intentions are:
+A) You are welcome to use this software package, it's cheap and it is worth it's money.
+B) Another intention is to spread this package widely, while continuously improving it (see distribution).
+C) One more intention is to encourage all non-commercial and/or non-profit user to use and recommend this package.
+    Just do it, it is free for you!
+
+All this usage and distribution shall be done without beguile the copyright holder out of his share.
+
+
+Note:
+You are always permitted to make arrangements wholly outside of this license directly with the copyright holder of this 
+package.
+
+
+License Types:
+=============
+
+Evaluation License. 
+--------------------------------
+Licensor licenses to You the non-exclusive, non-transferable, non-assignable right to install and run the Software as follows:
+
+A) The Software shall be installed and may be run on one or more of Your computers;
+
+B) The Software shall be used and accessed only by You or, if You are an organization, by employees or volunteers of Your 
+    organization only in respect of evaluating the Software and its potential use in Your organization's operations; and
+
+C) The Software shall be used by only one user at a time.
+
+You may make copies of the Software in any machine-readable form for back-up purposes, in support of Your use of the 
+Software, provided that each copy contains all proprietary notices.
+
+
+Full License.
+---------------------
+Upon payment of a Donation or a software license fee and in consideration of the license fees paid, You have been granted 
+a "Full License", at which "Evaluation License " restrictions shall no longer apply and Licensor shall license to You the 
+non-exclusive, non-transferable, non-assignable right to install and run the Software as follows:
+
+A) The Software shall be installed and may be run on one or more of Your computers;
+
+B) The Software shall be used and accessed only by You or, if You are an organization, by employees or volunteers of Your
+   organization only in respect of Your organization's operations; and
+
+C) The Software shall be used by only one user at a time unless You have paid an appropriate Donation or License Fee in 
+    respect of each simultaneous user.
+
+You may make copies of the Software in any machine-readable form for back-up purposes, in support of Your use of the 
+Software, provided that each copy contains all proprietary notices.
+
+
+Free License.
+----------------------
+You are permitted to use this Software Package as defined in the "Full License" topic, but without paying any Donation or 
+Fee for it, if one or more of the following cases are true:
+
+A) you are a student and use it for self-educational use only
+
+B) you are a non-profit organisation and use this software package for debugging or improving or checking non-profit products
+
+C) you're using this software package for debugging or improving or checking non-commercial products
+
+D) in the time of usage, you are my employer or you are another employee of my recent employer
+
+In any of the above cases, you're free to pay a small donation, if you feel it's worth it.
+
+
+
+
+Permission for Use and Distribution
+===================================
+(1) Any use, modification, and distribution of the standard or modified versions is governed by this license. 
+By using, modifying or distributing the package, you accept this license. 
+Do not use, modify, or distribute the package, if you do not accept this license.
+
+(2) If your Modified Version has been derived from a Modified Version made by someone other than you, 
+you are nevertheless required to ensure that your Modified Version complies with the requirements of this license.
+
+Permissions for (Re)distribution
+================================
+(1) You may Distribute verbatim copies of this package in any medium (either gratis nor for a distribution Fee) if,
+    and only if you keep this licence agreement with the package and point to the need to accept this agreement.
+
+(2) You may apply any bug fixes, portability changes, and other modifications and make it available back to the 
+    copyright holder. You are encouraged, but not required to do such.
+
+(3) You may NOT distribute your modified version as source (neither gratis nor for a fee) in another way than
+    sending it back to the copyright holder.
+
+(4) You may distribute compiled binary versions (usually .lib or .exe or comparable files) of either the original 
+    package or your modified version (either gratis or for any fee, and with or without any copyright note).
+
+(5) You are permitted to link modified and standard versions with other works, to embed the package in a larger work 
+    of your own, or to build stand-alone binary or bytecode versions of applications that include the package, and 
+    distribute the result without restriction, provided the result does not expose a direct interface to the package.
+
+
+
+
+General Provisions
+==================
+(1) Disclaimer of Warranty: 
+THE PACKAGE IS PROVIDED BY THE COPYRIGHT HOLDER AND CONTRIBUTORS "AS IS" AND WITHOUT ANY EXPRESS OR IMPLIED WARRANTIES. 
+THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT ARE DISCLAIMED TO THE 
+EXTENT PERMITTED BY YOUR LOCAL LAW. 
+
+UNLESS REQUIRED BY LAW, NO COPYRIGHT HOLDER OR CONTRIBUTOR WILL BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, OR 
+CONSEQUENTIAL DAMAGES ARISING IN ANY WAY OUT OF THE USE OF THE PACKAGE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
+IN CASE, SUCH LIABILITY IS REQUIRED BY YOUR LOCAL LAW, THIS LICENSE TERMINATES AND YOU NEED TO STOP USING THIS PRODUCT 
+IMMEDIATELY.
+
+How much is it?
+===============
+This depends on You and your conscience. It's a good rule of thumb to donate 50 EURO per User, or to donate 10 percent 
+of the money you saved by using this software package (compared to buying another software package or compared to 
+improving or debugging or testing your product without using this software package). Saved time should be calculated 
+into an appropriate amount of saved money. If you consider this too low, just raise it a bit. 
+
+Please keep always in mind: You can enforce further development and support, by enforcing donations / fees. 
+The license holder can spend his time on home improvement and yard work - or he can hire a service 
+provider for doing such, while spending his time to the software package. It depends on you.
+
+
+
+Donation or Fee?
+================
+As you like it. It's your decision. If you're using the SourceForge.net donation system, please read the SourceForge.net pages.
+Or contact the license holder directly: <mailto:?to=modem-man@gmx.net?subject=_CrtDbg%20for%20WinCE>
+
+(c) 2012-April-16 Maik Reiss, Germany. 

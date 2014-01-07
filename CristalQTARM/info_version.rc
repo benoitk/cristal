@@ -1,0 +1,61 @@
+# if defined(UNDER_CE)
+#  include <winbase.h>
+
+# else
+#  include <winver.h>
+# endif
+
+#define NUM_VERSION_QT "4.0.7 build 31"
+
+#define VER_FILEVERSION             4,0,7,31
+#define VER_PRODUCTVERSION_STR      "4,0,7,31\0"
+#define VER_FILEVERSION_STR         "4.0.7 build 31\0"
+#define VER_FILEDESCRIPTION_STR     "COLO MULTI MEASURE 4.0.7 build 31\0"
+#define VER_PRODUCTVERSION          VER_FILEVERSION_STR
+
+#define VER_COMPANYNAME_STR         "SERES Environnement\0"
+#define VER_INTERNALNAME_STR        "Cristal v4\0"
+#define VER_LEGALCOPYRIGHT_STR      "Copyright © 2013 SERES Environnement\0"
+#define VER_LEGALTRADEMARKS1_STR    "All Rights Reserve\0"
+#define VER_ORIGINALFILENAME_STR    "CristalQTARM.exe \0"
+#ifndef UNDER_CE
+	#define VER_PRODUCTNAME_STR     "Cristal/Saphir \0"
+#else
+	#define VER_PRODUCTNAME_STR     "Cristallite \0"
+#endif
+#define VER_COMMENTS				"None \0"
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION VER_FILEVERSION
+ PRODUCTVERSION VER_FILEVERSION
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS VS_FF_DEBUG
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS VOS__WINDOWS32
+ FILETYPE VFT_DLL
+ FILESUBTYPE 0x0L
+{
+    BLOCK "StringFileInfo"
+    { 
+        BLOCK "040904b0"
+        {
+            VALUE "Comments",         VER_COMMENTS
+            VALUE "CompanyName",      VER_COMPANYNAME_STR
+            VALUE "FileDescription",  VER_FILEDESCRIPTION_STR
+            VALUE "FileVersion",      VER_FILEVERSION_STR
+            VALUE "InternalName",     VER_INTERNALNAME_STR
+            VALUE "LegalCopyright",   VER_LEGALCOPYRIGHT_STR
+            VALUE "OriginalFilename", VER_ORIGINALFILENAME_STR
+            VALUE "ProductName",      VER_PRODUCTNAME_STR
+            VALUE "ProductVersion",   VER_PRODUCTVERSION_STR
+        } 
+    }
+    BLOCK "VarFileInfo"
+    {
+        VALUE "Translation", 0x409, 1200
+    }
+}
+/* End of Version info */
